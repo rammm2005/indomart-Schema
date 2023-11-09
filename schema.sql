@@ -3,6 +3,7 @@
 
 -- Make The Db name 
 CREATE DATABASE indomart; 
+USE indomart;
 
 CREATE TABLE tbl_jenis_barang (
     kode_jenis_barang CHAR(5) NOT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE barang (
     harga_barang FLOAT NOT NULL,
     stok INTEGER(5) NOT NULL,
     deskripsi TEXT,
-    kode_jenis_barang CHAR(10) NOT NULL,
+    kode_jenis_barang CHAR(5) NOT NULL,
     id_merk INTEGER(15) NOT NULL,
 
     createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
@@ -40,10 +41,19 @@ CREATE TABLE barang (
 
 
     PRIMARY KEY (kode_barang),
-    FOREIGN KEY kode_jenis_barang REFERENCES tbl_jenis_barang (kode_jenis_barang) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY id_merk REFERENCES tbl_merk (id_merk) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (kode_jenis_barang) REFERENCES tbl_jenis_barang (kode_jenis_barang) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_merk) REFERENCES tbl_merk (id_merk) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+CREATE TABLE member(
+    kode_member CHAR(5) NOT NULL,
+    nama_jenis VARCHAR(20) NOT NULL,
+    deskripsi TEXT,
+    createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
+    updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
+    PRIMARY KEY (kode_member)
+);
 
 CREATE TABLE pelanggan (
     id_pelanggan INTEGER(15) NOT NULL,
@@ -57,17 +67,21 @@ CREATE TABLE pelanggan (
     updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
 
     PRIMARY KEY (id_pelanggan),
-    FOREIGN KEY kode_member REFERENCES member(kode_member) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (kode_member) REFERENCES member(kode_member) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
-CREATE TABLE member(
-    kode_member CHAR(5) NOT NULL,
+
+
+CREATE TABLE divisi(
+    kode_divisi CHAR(5) NOT NULL,
     nama_jenis VARCHAR(20) NOT NULL,
     deskripsi TEXT,
+
     createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
     updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
-    PRIMARY KEY (kode_member)
+
+    PRIMARY KEY (kode_divisi)
 );
 
 
@@ -83,17 +97,7 @@ CREATE TABLE pegawai(
     updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
 
     PRIMARY KEY (id_pegawai),
-    FOREIGN KEY kode_divisi REFERENCES divisi(kode_divisi) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (kode_divisi) REFERENCES divisi(kode_divisi) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
-CRETAE TABLE divisi(
-    kode_divisi CHAR(5) NOT NULL,
-    nama_jenis VARCHAR(20) NOT NULL,
-    deskripsi TEXT,
-
-    createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
-    updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
-
-    PRIMARY KEY (kode_divisi)
-);
