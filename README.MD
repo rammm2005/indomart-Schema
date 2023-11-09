@@ -22,7 +22,10 @@ USE indomart;
 ```
 <p>USE INDOMART DATABASES</p>
 
-# Tables tbl_jenis_barang
+
+
+# AFTER USE THAT COMMANDS UP THERE , GO RIGHT HERE NOW 👀👇
+## Tables tbl_jenis_barang
 
 This table stores information about product categories.
 
