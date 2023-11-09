@@ -108,5 +108,6 @@ Column Name |	Data Type | Description |
 
 # Developer Updated
 <h4 style="color:blue; font-size:2rem; font-weight:700;">STILL ON Updated</h4>
+<p style="font-size:1.3rem; color:white;">Masih ada byang belum di masukin ON Updated !!!</p>
 <p style="font-size:1.6rem; color:yellow;">Byeeee :)</p>
 ###
