@@ -134,3 +134,14 @@ CREATE TABLE tbl_detail_pembelian (
     FOREIGN KEY (no_nota) REFERENCES pembelian (no_nota) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_pelanggan) REFERENCES pelanggan (id_pelanggan) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+-- Create Some Field
+INSERT INTO tbl_jenis_barang (
+	kode_jenis_barang,
+	nama_jenis_barang,
+	deskripsi
+) VALUES (
+	'B1000',
+	'Makanan',
+	'Ini Adalah Makanan Apa saja yang bisa masuk makanan ya di gigit'
+),('B1001', 'Minuman Kaleng','Pake Nanya'),('B1002', 'Minuman Saset','Pake Nanya Lagi');
