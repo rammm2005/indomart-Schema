@@ -2,14 +2,9 @@
 -- Rama :)
 -- Make The Db name 
 CREATE DATABASE indomart;
-
 USE indomart;
-
 SHOW TABLES;
-
 DESCRIBE TABLE_NAME;
-
-
 -- Model Databases
 CREATE TABLE tbl_jenis_barang (
     kode_jenis_barang CHAR(5) NOT NULL,
@@ -133,15 +128,67 @@ CREATE TABLE tbl_detail_pembelian (
     FOREIGN KEY (kode_barang) REFERENCES barang (kode_barang) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (no_nota) REFERENCES pembelian (no_nota) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_pelanggan) REFERENCES pelanggan (id_pelanggan) ON DELETE CASCADE ON UPDATE CASCADE
+    
 );
 
--- Create Some Field
+
+
+
+-- ALTER TABLE 
+ ALTER TABLE barang MODIFY COLUMN harga_barang FLOAT(9,3);
+
+
+
+
+-- INSERT VALUE INTO TABLES
 INSERT INTO tbl_jenis_barang (
-	kode_jenis_barang,
-	nama_jenis_barang,
-	deskripsi
-) VALUES (
-	'B1000',
-	'Makanan',
-	'Ini Adalah Makanan Apa saja yang bisa masuk makanan ya di gigit'
-),('B1001', 'Minuman Kaleng','Pake Nanya'),('B1002', 'Minuman Saset','Pake Nanya Lagi');
+        kode_jenis_barang,
+        nama_jenis_barang,
+        deskripsi
+    )
+VALUES (
+        'B1000',
+        'Makanan',
+        'Ini Adalah Makanan Apa saja yang bisa masuk makanan ya di gigit'
+    ),
+    ('B1001', 'Minuman Kaleng', 'Pake Nanya'),
+    ('B1002', 'Minuman Saset', 'Pake Nanya Lagi');
+-- Inseert Tabel Merk
+INSERT INTO tbl_merk (nama_merk, deskripsi)
+VALUES (
+        "Indomilk",
+        "Merupakan sebuah Brand Minuman yang merujuk ke susu segar"
+    ),
+    ("Mie Sedap", "Merupakan sebuah Brand Mie Instan"),
+    (
+        "Sari Roti",
+        "Merupakan sebuah Brand Roti yang sangat di gemari di Indonesia"
+    );
+-- Insert Tabel Barang
+INSERT INTO barang (
+        kode_barang,
+        nama_barang,
+        harga_barang,
+        stok,
+        deskripsi,
+        kode_jenis_barang,
+        id_merk
+    )
+VALUES (
+        "BIX069428G",
+        "Beng Beng",
+        2.500,
+        100,
+        "Beng beng adalah makanan yang memiliki 4 layer kenikmatan yang mantap setiap gigitannya menghasilkan kenikmatan",
+        "B1000",
+        "1"
+    ),
+    (
+        "BIX0920UDI",
+        "Dorayaki",
+        6.500,
+        200,
+        "Dorayaki Sari Roti adalah makanan yang memiliki kenikmatan yang mantap setiap gigitannya menghasilkan kenikmatan",
+        "B1000",
+        "3"
+    );
