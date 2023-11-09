@@ -9,13 +9,17 @@
 Create a database named indomart:
 
 `SQL CODE : `
+```
+CREATE DATABASE indomart;
+```
 
-# CREATE DATABASE indomart;
 
 Gunakan kode dengan hati-hati. Pelajari lebih lanjut
 
 `SQL CODE  :` 
-# USE indomart;
+```
+USE indomart;
+```
 <p>USE INDOMART DATABASES</p>
 
 # Tables tbl_jenis_barang
