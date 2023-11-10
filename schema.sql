@@ -128,18 +128,10 @@ CREATE TABLE tbl_detail_pembelian (
     FOREIGN KEY (kode_barang) REFERENCES barang (kode_barang) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (no_nota) REFERENCES pembelian (no_nota) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_pelanggan) REFERENCES pelanggan (id_pelanggan) ON DELETE CASCADE ON UPDATE CASCADE
-    
 );
-
-
-
-
 -- ALTER TABLE 
- ALTER TABLE barang MODIFY COLUMN harga_barang FLOAT(9,3);
-
-
-
-
+ALTER TABLE barang
+MODIFY COLUMN harga_barang FLOAT(9, 3);
 -- INSERT VALUE INTO TABLES
 INSERT INTO tbl_jenis_barang (
         kode_jenis_barang,
@@ -191,4 +183,28 @@ VALUES (
         "Dorayaki Sari Roti adalah makanan yang memiliki kenikmatan yang mantap setiap gigitannya menghasilkan kenikmatan",
         "B1000",
         "3"
+    );
+-- Insert Table Divisi
+INSERT INTO divisi (kode_divisi, nama_jenis, deskripsi)
+VALUES (
+        "DP001",
+        "Sales",
+        "Divisi yang bekerja untuk menjual barang"
+    ),
+(
+        "DP002",
+        "Designer",
+        "Divisi yang bekerja sebagai tim design untuk produk"
+    );
+-- Insert Member
+INSERT INTO member (kode_member, nama_jenis, deskripsi)
+VALUES (
+        "MU00S",
+        "Super Premium",
+        "Pelanggan dengan Member status Premium"
+    ),
+(
+        "MU00B",
+        "Basic",
+        "Pelanggan dengan Mmeber Status Basic"
     );
