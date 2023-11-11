@@ -45,7 +45,7 @@ CREATE TABLE member(
     PRIMARY KEY (kode_member)
 );
 CREATE TABLE pelanggan (
-    id_pelanggan INTEGER(15) NOT NULL,
+    id_pelanggan INTEGER(15) NOT NULL AUTO_INCREMENT,
     nama_pelanggan VARCHAR(50) NOT NULL,
     alamat VARCHAR(100) NOT NULL,
     no_tlp VARCHAR(14) NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE divisi(
     PRIMARY KEY (kode_divisi)
 );
 CREATE TABLE pegawai(
-    id_pegawai INTEGER(15) NOT NULL,
+    id_pegawai INTEGER(15) NOT NULL AUTO_INCREMENT,
     nama_pegawai VARCHAR(50) NOT NULL,
     no_tlp VARCHAR(14) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -191,7 +191,7 @@ VALUES (
         "Sales",
         "Divisi yang bekerja untuk menjual barang"
     ),
-(
+    (
         "DP002",
         "Designer",
         "Divisi yang bekerja sebagai tim design untuk produk"
@@ -203,8 +203,23 @@ VALUES (
         "Super Premium",
         "Pelanggan dengan Member status Premium"
     ),
-(
+    (
         "MU00B",
         "Basic",
         "Pelanggan dengan Mmeber Status Basic"
+    );
+-- Inser Into Pegawai
+INSERT INTO pegawai (nama_pegawai, no_tlp, email, alamat, kode_divisi) VALUE (
+        "Nolan",
+        "087994279027",
+        "nolan@gmail.com",
+        "Jln.Jimbaran",
+        "DP001"
+    ),
+    (
+        "Sisna",
+        "08542738784387",
+        "sisna@gmail.com",
+        "Jln.Batuaji",
+        "DP002"
     );
