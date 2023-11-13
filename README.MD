@@ -22,7 +22,9 @@ USE indomart;
 ```
 <p>USE INDOMART DATABASES</p>
 
-# For this Command Running the Create & Insert Table First 
+### For this Command Running the Create & Insert Table First 
+Show the Fields from the tables;
+
 `SQL CODE  :` 
 ```
 DESCRIBE nama_tabel;
