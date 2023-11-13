@@ -223,3 +223,25 @@ INSERT INTO pegawai (nama_pegawai, no_tlp, email, alamat, kode_divisi) VALUE (
         "Jln.Batuaji",
         "DP002"
     );
+-- Isert Into Pelanggan
+INSERT INTO pelanggan (
+        nama_pelanggan,
+        alamat,
+        no_tlp,
+        email,
+        kode_member
+    )
+VALUES (
+        "Rama Ganteng",
+        "Gianyar",
+        "0867467929",
+        "ramaTmvan@gmail.com",
+        "MU00S"
+    ),
+    (
+        "Ray",
+        "Denpasar",
+        "0876565226",
+        "ray@gmail.com",
+        "MU00B"
+    );
