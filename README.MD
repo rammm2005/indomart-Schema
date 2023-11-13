@@ -22,6 +22,20 @@ USE indomart;
 ```
 <p>USE INDOMART DATABASES</p>
 
+# For this Command Running the Create & Insert Table First 
+`SQL CODE  :` 
+```
+DESCRIBE nama_tabel;
+```
+<p>gunakan ini untuk melihat lebih spesifik field di dalam sebuah tabel seperti tipe data dan lain nya</p>
+
+
+`SQL CODE  :` 
+```
+SELECT * FROM nama_tabel;
+```
+<p>gunakan ini untuk melihat keseluruhan data yang kita tambahkan sebelumnya ke dalam tabel tujuan.</p>
+
 
 
 # AFTER USE THAT COMMANDS UP THERE , GO RIGHT HERE NOW 👀👇
@@ -189,6 +203,11 @@ This table stores information about purchase details.
 | FOREIGN KEY (kode_barang) REFERENCES barang (kode_barang) ON DELETE CASCADE ON UPDATE CASCADE |
 | FOREIGN KEY (no_nota) REFERENCES pembelian (no_nota) ON DELETE CASCADE ON UPDATE CASCADE |
 | FOREIGN KEY (id_pelanggan) REFERENCES pelanggan (id_pelanggan) ON DELETE CASCADE ON UPDATE CASCADE |
+
+
+
+
+
 
 
 
