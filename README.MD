@@ -25,6 +25,13 @@ USE indomart;
 ### For this Command Running the Create & Insert Table First 
 Show the Fields from the tables;
 
+
+`SQL CODE  :` 
+```
+SHOW TABLES;
+```
+<p>gunakan perintah ini untuk melihat seluruh tabel yang terdapat pada suatu database.</p>
+
 `SQL CODE  :` 
 ```
 DESCRIBE nama_tabel;
