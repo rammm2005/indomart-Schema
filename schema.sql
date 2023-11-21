@@ -244,4 +244,19 @@ VALUES (
         "0876565226",
         "ray@gmail.com",
         "MU00B"
+    ),
+    (
+        "Rusdi",
+        "Badung",
+        "08002909393",
+        "rudf@gmail.com",
+        "MU00B"
     );
+
+
+-- Updated Tables Pelanggan
+UPDATE pelanggan SET email='ramaTampan@gmail.com' WHERE id_pelanggan=1;
+
+
+-- Delete Data in Table 
+DELETE FROM pelanggan WHERE id_pelanggan=3;

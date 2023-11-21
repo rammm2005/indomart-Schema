@@ -46,6 +46,28 @@ SELECT * FROM nama_tabel;
 <p>gunakan ini untuk melihat keseluruhan data yang kita tambahkan sebelumnya ke dalam tabel tujuan.</p>
 
 
+#### Update Command for SQL DATABASES
+UPdate the Fields from the tables;
+
+`SQL CODE  :` 
+```
+UPDATE nama_tabel SET value1 = the_value WHERE CONDITION;
+```
+<p>gunakan ini untuk Memaniplasi data atau melakukan update data.</p>
+
+
+##### DELETE COMMAND for SQL DATABASES
+DELETE the Fields from the tables;
+`SQL CODE  :` 
+```
+DELETE nama_tabel WHERE CONDITION;
+```
+<p>gunakan ini untuk Menghapus data, biasanya pake WHERE id = nilai_id.</p>
+
+
+
+
+
 
 # AFTER USE THAT COMMANDS UP THERE , GO RIGHT HERE NOW 👀👇
 ## Tables tbl_jenis_barang
