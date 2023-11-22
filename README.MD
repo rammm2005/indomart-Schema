@@ -60,7 +60,7 @@ UPDATE nama_tabel SET value1 = the_value WHERE CONDITION;
 DELETE the Fields from the tables;
 `SQL CODE  :` 
 ```
-DELETE nama_tabel WHERE CONDITION;
+DELETE FROM nama_tabel WHERE CONDITION;
 ```
 <p>gunakan ini untuk Menghapus data, biasanya pake WHERE id = nilai_id.</p>
 
