@@ -260,3 +260,10 @@ UPDATE pelanggan SET email='ramaTampan@gmail.com' WHERE id_pelanggan=1;
 
 -- Delete Data in Table 
 DELETE FROM pelanggan WHERE id_pelanggan=3;
+
+
+
+-- Fungsi Agregat
+SELECT tbl_jenis_barang, SUM(stoke) FROM barang GROUP BY tbl_jenis_barang ;
+
+
