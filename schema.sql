@@ -47,7 +47,11 @@ CREATE TABLE member(
 CREATE TABLE pelanggan (
     id_pelanggan INTEGER(15) NOT NULL AUTO_INCREMENT,
     nama_pelanggan VARCHAR(50) NOT NULL,
-    alamat VARCHAR(100) NOT NULL,
+    jalan VARCHAR(50) NOT NULL,
+    kecamatan VARCHAR(50) NOT NULL,
+    kabupaten VARCHAR(50) NOT NULL,
+    kode_pos INTEGER(5) NOT NULL,
+    kelamin ENUM('l','p') NOT NULL,
     no_tlp VARCHAR(14) NOT NULL,
     email VARCHAR(50) NOT NULL,
     kode_member CHAR(5) NOT NULL,
@@ -69,7 +73,11 @@ CREATE TABLE pegawai(
     nama_pegawai VARCHAR(50) NOT NULL,
     no_tlp VARCHAR(14) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    alamat VARCHAR(50) NOT NULL,
+    jalan VARCHAR(50) NOT NULL,
+    kecamatan VARCHAR(50) NOT NULL,
+    kabupaten VARCHAR(50) NOT NULL,
+    kode_pos INTEGER(5) NOT NULL,
+    kelamin ENUM('l','p') NOT NULL,
     kode_divisi CHAR(5) NOT NULL,
     createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
     updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
@@ -209,11 +217,15 @@ VALUES (
         "Pelanggan dengan Mmeber Status Basic"
     );
 -- Inser Into Pegawai
-INSERT INTO pegawai (nama_pegawai, no_tlp, email, alamat, kode_divisi) VALUE (
+INSERT INTO pegawai (nama_pegawai, no_tlp, email, jalan, kode_pos, kecamatan, kelamin, kabupaten, kode_divisi) VALUE (
         "Nolan",
         "087994279027",
         "nolan@gmail.com",
         "Jln.Jimbaran",
+        80289,
+        "Kelan",
+        'p',
+        "badung",
         "DP001"
     ),
     (
@@ -221,25 +233,48 @@ INSERT INTO pegawai (nama_pegawai, no_tlp, email, alamat, kode_divisi) VALUE (
         "08542738784387",
         "sisna@gmail.com",
         "Jln.Batuaji",
+         80282,
+        "Sukawati",
+        'p',
+        "Giayar",
+        "DP002"
+    ),
+    (
+        "Putu",
+        "08542738784387",
+        "putu@gmail.com",
+        "Jln.siulan",
+         80223,
+        "Pemcutan",
+        'p',
+        "Denpasar",
         "DP002"
     );
 -- Isert Into Pelanggan
 INSERT INTO pelanggan (
         nama_pelanggan,
-        alamat,
+        jalan, kode_pos, kecamatan, kelamin, kabupaten,
         no_tlp,
         email,
         kode_member
     )
 VALUES (
         "Rama Ganteng",
-        "Gianyar",
+        "Jln.Jimbaran",
+        80289,
+        "Kelan",
+        'p',
+        "badung",
         "0867467929",
         "ramaTmvan@gmail.com",
         "MU00S"
     ),
     (
         "Ray",
+        "Jln.Kereneng",
+        80289,
+        "Kreneng",
+        'p',
         "Denpasar",
         "0876565226",
         "ray@gmail.com",
@@ -247,7 +282,11 @@ VALUES (
     ),
     (
         "Rusdi",
-        "Badung",
+        "Jln.Sudirman",
+        80220,
+        "Kreneng",
+        'p',
+        "Denpasar",
         "08002909393",
         "rudf@gmail.com",
         "MU00B"
@@ -260,6 +299,24 @@ UPDATE pelanggan SET email='ramaTampan@gmail.com' WHERE id_pelanggan=1;
 
 -- Delete Data in Table 
 DELETE FROM pelanggan WHERE id_pelanggan=3;
+
+
+
+/*[22-Nov 15:03:03][2 ms]*/ UPDATE pegawai SET kelamin='l' WHERE id_pegawai=1; 
+/*[22-Nov 15:03:24][2 ms]*/ UPDATE pegawai SET kelamin='l' WHERE id_pegawai=3; 
+/*[22-Nov 15:03:27][0 ms]*/ UPDATE pegawai SET kelamin='l' WHERE id_pegawai=3; 
+/*[22-Nov 15:04:02][3 ms]*/ UPDATE pegawai SET nama_pegawai='Michie',email='michie@gmail.com' WHERE id_pegawai=2; 
+
+
+-- Show all pegawai Data
+SELECT * FROM pegawai
+
+
+-- Show nama Pegawai yang tinggal di Denpasar
+SELECT nama_pegawai FROM pegawai WHERE kabupaten="Denpasar"
+
+-- Show nama Pegawai yang Bernama Putu
+SELECT nama_pegawai FROM pegawai WHERE nama_pegawai="Putu"
 
 
 
