@@ -112,6 +112,7 @@ CREATE TABLE pembelian (
     FOREIGN KEY (id_tipe_pembayaran) REFERENCES tipe_pembayaran (id_tipe_pembayaran) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE tbl_detail_penjualan (
+    id INTEGER(11) NOT NULL AUTO_INCREMENT,
     kode_barang CHAR(10) NOT NULL,
     no_nota CHAR(10) NOT NULL,
     id_pegawai INTEGER(15) NOT NULL,
@@ -119,12 +120,13 @@ CREATE TABLE tbl_detail_penjualan (
     harga_jual FLOAT(15) NOT NULL,
     createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
     updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
-    PRIMARY KEY (kode_barang, no_nota, id_pegawai),
+    PRIMARY KEY (id),
     FOREIGN KEY (kode_barang) REFERENCES barang (kode_barang) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (no_nota) REFERENCES penjualan (no_nota) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_pegawai) REFERENCES pegawai (id_pegawai) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE tbl_detail_pembelian (
+    id INTEGER(11) NOT NULL AUTO_INCREMENT,
     kode_barang CHAR(10) NOT NULL,
     no_nota CHAR(10) NOT NULL,
     id_pelanggan INTEGER(15) NOT NULL,
@@ -132,7 +134,7 @@ CREATE TABLE tbl_detail_pembelian (
     harga_beli FLOAT(15) NOT NULL,
     createdAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
     updatedAt DATETIME(4) DEFAULT CURRENT_TIMESTAMP(4) NOT NULL,
-    PRIMARY KEY (kode_barang, no_nota, id_pelanggan),
+    PRIMARY KEY (id),
     FOREIGN KEY (kode_barang) REFERENCES barang (kode_barang) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (no_nota) REFERENCES pembelian (no_nota) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_pelanggan) REFERENCES pelanggan (id_pelanggan) ON DELETE CASCADE ON UPDATE CASCADE
@@ -318,9 +320,23 @@ SELECT nama_pegawai FROM pegawai WHERE kabupaten="Denpasar"
 -- Show nama Pegawai yang Bernama Putu
 SELECT nama_pegawai FROM pegawai WHERE nama_pegawai="Putu"
 
+-- Count all data pegawai
+SELECT COUNT(*) FROM pegawai;
+
+
+-- Sort dari denpasar dan jenis kelamin laki"
+SELECT * FROM pegawai WHERE kelamin='l' AND kabupaten='Denpasar';
+
+-- Sort pegawai berdasarkan alamat
+SELECT COUNT(jalan) FROM pegawai;
+
+-- Jumlah data barang yang terjual
 
 
 -- Fungsi Agregat
 SELECT tbl_jenis_barang, SUM(stoke) FROM barang GROUP BY tbl_jenis_barang ;
+
+
+
 
 
