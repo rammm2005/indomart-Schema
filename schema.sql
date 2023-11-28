@@ -295,6 +295,8 @@ VALUES (
     );
 
 
+INSERT INTO penjualan ()
+
 -- Updated Tables Pelanggan
 UPDATE pelanggan SET email='ramaTampan@gmail.com' WHERE id_pelanggan=1;
 
@@ -331,7 +333,25 @@ SELECT * FROM pegawai WHERE kelamin='l' AND kabupaten='Denpasar';
 SELECT COUNT(jalan) FROM pegawai;
 
 -- Jumlah data barang yang terjual
+SELECT kode_barang, SUM(jumlah) AS total_terjual
+FROM tbl_detail_penjualan
+GROUP BY kode_barang;
 
+-- total pendapatan dari barang yang terjual
+SELECT kode_barang, SUM(jumlah * harga_jual) AS total_pendapatan
+FROM tbl_detail_penjualan
+GROUP BY kode_barang;
+
+-- nama barang dan jumlah terjual
+SELECT barang.`nama_barang`, SUM(tbl_detail_penjualan.jumlah) AS jumlah_terjual
+FROM tbl_detail_penjualan
+JOIN barang ON tbl_detail_penjualan.`kode_barang` = barang.`kode_barang`
+GROUP BY barang.nama_barang;
+
+-- tapi kalo misalnya nama barang sudah ada di field relasi pake ini COMMENTSELECT barang.`nama_barang`, SUM(tbl_detail_penjualan.jumlah) AS jumlah_terjual
+SELECT `nama_barang`, SUM(jumlah) AS jumlah_terjual
+FROM tbl_detail_penjualan
+GROUP BY barang.nama_barang;
 
 -- Fungsi Agregat
 SELECT tbl_jenis_barang, SUM(stoke) FROM barang GROUP BY tbl_jenis_barang ;
