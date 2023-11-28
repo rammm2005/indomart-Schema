@@ -330,7 +330,7 @@ SELECT COUNT(*) FROM pegawai;
 SELECT * FROM pegawai WHERE kelamin='l' AND kabupaten='Denpasar';
 
 -- Sort pegawai berdasarkan alamat
-SELECT kabupaten, COUNT(*) AS jumlah_pegawai FROM pegawai;
+SELECT kabupaten, COUNT(*) AS jumlah_pegawai FROM pegawai GROUP BY kabupaten;
 
 -- Jumlah data barang yang terjual
 SELECT kode_barang, SUM(jumlah) AS total_terjual
